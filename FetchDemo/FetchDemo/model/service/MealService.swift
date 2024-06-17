@@ -9,29 +9,30 @@ import Foundation
 import Combine
 import CoreData
 
-class MealAPIService {
-    static let shared = MealAPIService()
+class MealService {
+    static let shared = MealService()
     private init(){}
-    
-    private let baseURL = "https://themealdb.com/api/json/v1/1"
-    
+        
     private let coreDataManager = PersistenceController.shared
-    
+    private let apiProvider : APIProvider = APIAsyncProvider()
+
     func fetchDesserts() -> AnyPublisher<[Meal], Error> {
         if NetworkMonitor.shared.isConnected {
             return fetchDessertsFromServer()
-                .handleEvents(receiveOutput: { meals in
-                    self.saveMealsToCoreData(meals)
+                .handleEvents(receiveOutput: { res in
+                    self.saveMealsToCoreData(res.meals)
                 })
+                .map({$0.meals})
                 .eraseToAnyPublisher()
         } else {
             return fetchDessertsFromCoreData()
-        }
+        }        
     }
     
     func fetchMealDetail(id: String) -> AnyPublisher<MealDetail, Error> {
         if NetworkMonitor.shared.isConnected {
             return fetchMealDetailFromServer(id: id)
+                .map({$0.meals.first!})
                 .handleEvents(receiveOutput: { mealDetail in
                     self.saveMealDetailToCoreData(mealDetail)
                 })
@@ -41,22 +42,14 @@ class MealAPIService {
         }
     }
     //MARK: - Online Fetching
-    private func fetchDessertsFromServer() -> AnyPublisher<[Meal], Error> {
-        let url = URL(string: "\(baseURL)/filter.php?c=Dessert")!
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: MealResponse.self, decoder: JSONDecoder())
-            .map { $0.meals.sorted { $0.strMeal < $1.strMeal } }
-            .eraseToAnyPublisher()
+    private func fetchDessertsFromServer() -> AnyPublisher<MealResponse, Error> {
+        let api = FetchAPIs.GetDesserts()
+        return apiProvider.requestPublisher(for: api).eraseToAnyPublisher()
     }
     
-    private func fetchMealDetailFromServer(id: String) -> AnyPublisher<MealDetail, Error> {
-        let url = URL(string: "\(baseURL)/lookup.php?i=\(id)")!
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: MealDetailResponse.self, decoder: JSONDecoder())
-            .map { $0.meals.first! }
-            .eraseToAnyPublisher()
+    private func fetchMealDetailFromServer(id: String) -> AnyPublisher<MealDetailResponse, Error> {
+        let api = FetchAPIs.GetMealDetail(mealID: id)
+        return apiProvider.requestPublisher(for: api).eraseToAnyPublisher()
     }
     //MARK: - Offline Fetching
     private func fetchDessertsFromCoreData() -> AnyPublisher<[Meal], Error> {

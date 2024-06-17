@@ -24,45 +24,37 @@ struct MealDetail: Codable {
     let strCreativeCommonsConfirmed: String?
     let dateModified: String?
     
-    let strIngredient1: String?
-    let strIngredient2: String?
-    let strIngredient3: String?
-    let strIngredient4: String?
-    let strIngredient5: String?
-    let strIngredient6: String?
-    let strIngredient7: String?
-    let strIngredient8: String?
-    let strIngredient9: String?
-    let strIngredient10: String?
-    let strIngredient11: String?
-    let strIngredient12: String?
-    let strIngredient13: String?
-    let strIngredient14: String?
-    let strIngredient15: String?
-    let strIngredient16: String?
-    let strIngredient17: String?
-    let strIngredient18: String?
-    let strIngredient19: String?
-    let strIngredient20: String?
-
-    let strMeasure1: String?
-    let strMeasure2: String?
-    let strMeasure3: String?
-    let strMeasure4: String?
-    let strMeasure5: String?
-    let strMeasure6: String?
-    let strMeasure7: String?
-    let strMeasure8: String?
-    let strMeasure9: String?
-    let strMeasure10: String?
-    let strMeasure11: String?
-    let strMeasure12: String?
-    let strMeasure13: String?
-    let strMeasure14: String?
-    let strMeasure15: String?
-    let strMeasure16: String?
-    let strMeasure17: String?
-    let strMeasure18: String?
-    let strMeasure19: String?
-    let strMeasure20: String?
+    let strIngredient: [String : String]?
+    let strMeasure: [String : String]?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.idMeal = try container.decode(String.self, forKey: .idMeal)
+        self.strMeal = try container.decode(String.self, forKey: .strMeal)
+        self.strDrinkAlternate = try container.decodeIfPresent(String.self, forKey: .strDrinkAlternate)
+        self.strCategory = try container.decodeIfPresent(String.self, forKey: .strCategory)
+        self.strArea = try container.decodeIfPresent(String.self, forKey: .strArea)
+        self.strInstructions = try container.decodeIfPresent(String.self, forKey: .strInstructions)
+        self.strMealThumb = try container.decodeIfPresent(String.self, forKey: .strMealThumb)
+        self.strTags = try container.decodeIfPresent(String.self, forKey: .strTags)
+        self.strYoutube = try container.decodeIfPresent(String.self, forKey: .strYoutube)
+        self.strSource = try container.decodeIfPresent(String.self, forKey: .strSource)
+        self.strImageSource = try container.decodeIfPresent(String.self, forKey: .strImageSource)
+        self.strCreativeCommonsConfirmed = try container.decodeIfPresent(String.self, forKey: .strCreativeCommonsConfirmed)
+        self.dateModified = try container.decodeIfPresent(String.self, forKey: .dateModified)
+        
+        
+        var strIngredient = [String : String]()
+        var strMeasure = [String : String]()
+        for i in 1...20 {
+            if let key = CodingKeys(stringValue: "strIngredient\(i)"), let val = try? container.decodeIfPresent(String.self, forKey: key) {
+                strIngredient[key.stringValue] = val
+            }
+            if let key = CodingKeys(stringValue: "strMeasure\(i)"), let val = try? container.decodeIfPresent(String.self, forKey: key) {
+                strMeasure[key.stringValue] = val
+            }
+        }
+        self.strIngredient = strIngredient
+        self.strMeasure = strMeasure
+    }
 }

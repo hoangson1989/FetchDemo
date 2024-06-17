@@ -10,15 +10,24 @@ import SwiftUI
 import UIKit
 
 class ImageCache {
+    private let cache = NSCache<NSString, UIImage>()
+    private let queue = DispatchQueue(label: "com.sonny.imagecache", attributes: .concurrent)
+    
     static let shared = ImageCache()
-
-    private var cache: [String: UIImage] = [:]
-
+    
+    private init() {}
+    
     func getImage(forKey key: String) -> UIImage? {
-        return cache[key]
+        var image: UIImage?
+        queue.sync {
+            image = cache.object(forKey: key as NSString)
+        }
+        return image
     }
-
+    
     func setImage(_ image: UIImage, forKey key: String) {
-        cache[key] = image
+        queue.async(flags: .barrier) {
+            self.cache.setObject(image, forKey: key as NSString)
+        }
     }
 }

@@ -24,26 +24,11 @@ extension MealDetailDB {
         self.strCreativeCommonsConfirmed = mealDetail.strCreativeCommonsConfirmed
         self.dateModified = mealDetail.dateModified
         
-        
-        var ingredientDict: [String: String] = [:]
-        var measureDict: [String: String] = [:]
-        
-        let mirror = Mirror(reflecting: mealDetail)
-        for child in mirror.children {
-            if let label = child.label, let value = child.value as? String {
-                if label.starts(with: "strIngredient") {
-                    ingredientDict[label] = value
-                } else if label.starts(with: "strMeasure") {
-                    measureDict[label] = value
-                }
-            }
-        }
-        
-        if let ingredientData = try? JSONSerialization.data(withJSONObject: ingredientDict) {
+        if let ingredientDict = mealDetail.strIngredient, let ingredientData = try? JSONSerialization.data(withJSONObject: ingredientDict) {
             self.strIngredient = ingredientData
         }
         
-        if let measureData = try? JSONSerialization.data(withJSONObject: measureDict) {
+        if let measureDict = mealDetail.strMeasure , let measureData = try? JSONSerialization.data(withJSONObject: measureDict) {
             self.strMeasure = measureData
         }
     }

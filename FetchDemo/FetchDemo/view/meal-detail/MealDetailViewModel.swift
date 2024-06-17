@@ -16,7 +16,7 @@ class MealDetailViewModel: ObservableObject {
     
     func fetchMealDetail(id: String) {
         isLoading = true
-        MealAPIService.shared.fetchMealDetail(id: id)
+        MealService.shared.fetchMealDetail(id: id)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in
                 self.isLoading = false

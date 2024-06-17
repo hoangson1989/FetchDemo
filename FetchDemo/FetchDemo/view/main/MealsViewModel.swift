@@ -18,19 +18,7 @@ class MealsViewModel : ObservableObject {
         guard !isLoading else { return }
         isLoading = true
         
-        MealAPIService.shared.fetchDesserts()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in
-                self.isLoading = false
-            }, receiveValue: { meals in
-                self.meals = meals.filter { !$0.strMeal.isEmpty }
-            })
-            .store(in: &cancellables)
-    }
-    
-    func refreshDesserts() {
-        isLoading = true
-        MealAPIService.shared.fetchDesserts()
+        MealService.shared.fetchDesserts()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in
                 self.isLoading = false

@@ -24,7 +24,7 @@ struct MealsView: View {
                     }
                     
                     Button("Refresh") {
-                        viewModel.refreshDesserts()
+                        viewModel.fetchDesserts()
                     }
                     .padding()
                 }

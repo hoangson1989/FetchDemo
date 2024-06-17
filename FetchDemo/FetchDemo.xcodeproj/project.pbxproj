@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9521EBE62C20BAC00031AAB1 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521EBE52C20BAC00031AAB1 /* RequestHandler.swift */; };
+		9521EBE82C20BD570031AAB1 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521EBE72C20BD570031AAB1 /* ResponseHandler.swift */; };
+		9521EBEA2C20BDD50031AAB1 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521EBE92C20BDD50031AAB1 /* APIProvider.swift */; };
+		9521EBEC2C20C6650031AAB1 /* ApiDesserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521EBEB2C20C6650031AAB1 /* ApiDesserts.swift */; };
+		9521EBEE2C20C7E00031AAB1 /* FetchAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521EBED2C20C7E00031AAB1 /* FetchAPIs.swift */; };
+		9521EBF02C20C88F0031AAB1 /* ApiMealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521EBEF2C20C88F0031AAB1 /* ApiMealDetail.swift */; };
+		9521EBF32C20CD6A0031AAB1 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9521EBF22C20CD6A0031AAB1 /* Response.swift */; };
 		955A47FA2C1534D000B5D02F /* FetchDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A47F92C1534D000B5D02F /* FetchDemoApp.swift */; };
 		955A47FC2C1534D000B5D02F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A47FB2C1534D000B5D02F /* Persistence.swift */; };
 		955A47FF2C1534D000B5D02F /* FetchDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 955A47FD2C1534D000B5D02F /* FetchDemo.xcdatamodeld */; };
@@ -28,7 +35,7 @@
 		955A48512C15432500B5D02F /* MealDB+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A48502C15432500B5D02F /* MealDB+Mapping.swift */; };
 		955A48532C15433500B5D02F /* MealDetailDB+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A48522C15433500B5D02F /* MealDetailDB+Mapping.swift */; };
 		955A48562C15454C00B5D02F /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A48552C15454C00B5D02F /* NetworkMonitor.swift */; };
-		955A48592C1545F100B5D02F /* MealAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A48582C1545F100B5D02F /* MealAPIService.swift */; };
+		955A48592C1545F100B5D02F /* MealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A48582C1545F100B5D02F /* MealService.swift */; };
 		955A485C2C15522E00B5D02F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A485B2C15522D00B5D02F /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +57,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9521EBE52C20BAC00031AAB1 /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		9521EBE72C20BD570031AAB1 /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		9521EBE92C20BDD50031AAB1 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		9521EBEB2C20C6650031AAB1 /* ApiDesserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDesserts.swift; sourceTree = "<group>"; };
+		9521EBED2C20C7E00031AAB1 /* FetchAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAPIs.swift; sourceTree = "<group>"; };
+		9521EBEF2C20C88F0031AAB1 /* ApiMealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMealDetail.swift; sourceTree = "<group>"; };
+		9521EBF22C20CD6A0031AAB1 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		955A47F62C1534D000B5D02F /* FetchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		955A47F92C1534D000B5D02F /* FetchDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDemoApp.swift; sourceTree = "<group>"; };
 		955A47FB2C1534D000B5D02F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -75,7 +89,7 @@
 		955A48502C15432500B5D02F /* MealDB+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealDB+Mapping.swift"; sourceTree = "<group>"; };
 		955A48522C15433500B5D02F /* MealDetailDB+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealDetailDB+Mapping.swift"; sourceTree = "<group>"; };
 		955A48552C15454C00B5D02F /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
-		955A48582C1545F100B5D02F /* MealAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAPIService.swift; sourceTree = "<group>"; };
+		955A48582C1545F100B5D02F /* MealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealService.swift; sourceTree = "<group>"; };
 		955A485B2C15522D00B5D02F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +118,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9521EBE22C20B0150031AAB1 /* APIProvider */ = {
+			isa = PBXGroup;
+			children = (
+				9521EBE92C20BDD50031AAB1 /* APIProvider.swift */,
+			);
+			path = APIProvider;
+			sourceTree = "<group>";
+		};
+		9521EBE32C20B01E0031AAB1 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				9521EBF12C20C8950031AAB1 /* child */,
+				9521EBED2C20C7E00031AAB1 /* FetchAPIs.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		9521EBE42C20B0280031AAB1 /* APIProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				9521EBE52C20BAC00031AAB1 /* RequestHandler.swift */,
+				9521EBE72C20BD570031AAB1 /* ResponseHandler.swift */,
+			);
+			path = APIProtocol;
+			sourceTree = "<group>";
+		};
+		9521EBF12C20C8950031AAB1 /* child */ = {
+			isa = PBXGroup;
+			children = (
+				9521EBEB2C20C6650031AAB1 /* ApiDesserts.swift */,
+				9521EBEF2C20C88F0031AAB1 /* ApiMealDetail.swift */,
+			);
+			path = child;
+			sourceTree = "<group>";
+		};
+		9521EBF42C20D25C0031AAB1 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				955A48582C1545F100B5D02F /* MealService.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
 		955A47ED2C1534CF00B5D02F = {
 			isa = PBXGroup;
 			children = (
@@ -167,11 +224,11 @@
 		955A48292C15355A00B5D02F /* model */ = {
 			isa = PBXGroup;
 			children = (
+				9521EBF42C20D25C0031AAB1 /* service */,
 				955A485A2C15521600B5D02F /* cache */,
 				955A48572C1545CA00B5D02F /* api */,
 				955A48542C15452D00B5D02F /* network */,
 				955A48402C1539FE00B5D02F /* database */,
-				955A48372C15385D00B5D02F /* api-response */,
 				955A48342C1536DB00B5D02F /* domain */,
 			);
 			path = model;
@@ -218,6 +275,7 @@
 			children = (
 				955A48382C15387B00B5D02F /* MealResponse.swift */,
 				955A483C2C1539A300B5D02F /* MealDetailResponse.swift */,
+				9521EBF22C20CD6A0031AAB1 /* Response.swift */,
 			);
 			path = "api-response";
 			sourceTree = "<group>";
@@ -268,7 +326,10 @@
 		955A48572C1545CA00B5D02F /* api */ = {
 			isa = PBXGroup;
 			children = (
-				955A48582C1545F100B5D02F /* MealAPIService.swift */,
+				955A48372C15385D00B5D02F /* api-response */,
+				9521EBE42C20B0280031AAB1 /* APIProtocol */,
+				9521EBE32C20B01E0031AAB1 /* APIs */,
+				9521EBE22C20B0150031AAB1 /* APIProvider */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -413,22 +474,29 @@
 			files = (
 				955A48312C15369800B5D02F /* MealDetailView.swift in Sources */,
 				955A48562C15454C00B5D02F /* NetworkMonitor.swift in Sources */,
+				9521EBF02C20C88F0031AAB1 /* ApiMealDetail.swift in Sources */,
+				9521EBEA2C20BDD50031AAB1 /* APIProvider.swift in Sources */,
 				955A47FF2C1534D000B5D02F /* FetchDemo.xcdatamodeld in Sources */,
 				955A484E2C153E1500B5D02F /* MealDetail+Mapping.swift in Sources */,
 				955A48532C15433500B5D02F /* MealDetailDB+Mapping.swift in Sources */,
+				9521EBE62C20BAC00031AAB1 /* RequestHandler.swift in Sources */,
 				955A48512C15432500B5D02F /* MealDB+Mapping.swift in Sources */,
 				955A47FA2C1534D000B5D02F /* FetchDemoApp.swift in Sources */,
 				955A48012C1534D000B5D02F /* MealsView.swift in Sources */,
 				955A48362C15370000B5D02F /* Meal.swift in Sources */,
 				955A482E2C1535F400B5D02F /* MealsViewModel.swift in Sources */,
 				955A48392C15387B00B5D02F /* MealResponse.swift in Sources */,
+				9521EBEC2C20C6650031AAB1 /* ApiDesserts.swift in Sources */,
 				955A484C2C153DD000B5D02F /* Meal+Mapping.swift in Sources */,
+				9521EBE82C20BD570031AAB1 /* ResponseHandler.swift in Sources */,
 				955A485C2C15522E00B5D02F /* ImageCache.swift in Sources */,
-				955A48592C1545F100B5D02F /* MealAPIService.swift in Sources */,
+				955A48592C1545F100B5D02F /* MealService.swift in Sources */,
 				955A483D2C1539A300B5D02F /* MealDetailResponse.swift in Sources */,
 				955A483B2C15389300B5D02F /* MealDetail.swift in Sources */,
+				9521EBEE2C20C7E00031AAB1 /* FetchAPIs.swift in Sources */,
 				955A48332C1536B000B5D02F /* MealDetailViewModel.swift in Sources */,
 				955A47FC2C1534D000B5D02F /* Persistence.swift in Sources */,
+				9521EBF32C20CD6A0031AAB1 /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

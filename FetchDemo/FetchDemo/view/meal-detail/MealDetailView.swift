@@ -54,8 +54,8 @@ struct MealDetailView: View {
                             .padding(.vertical)
                         
                         ForEach(1...20, id: \.self) { index in
-                            if let ingredient = mealDetail.value(forKey: "strIngredient\(index)"),
-                               let measure = mealDetail.value(forKey: "strMeasure\(index)"),
+                            if let ingredient = mealDetail.strIngredient?["strIngredient\(index)"],
+                               let measure = mealDetail.strMeasure?["strMeasure\(index)"],
                                !ingredient.isEmpty {
                                 Text("\(ingredient): \(measure)")
                             }
